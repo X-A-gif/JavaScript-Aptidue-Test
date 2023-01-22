@@ -1,4 +1,7 @@
+
 //Delcare a questions varriable as an array of objects 
+// aswell as some other golbal variables
+
 var questions = [
   {
     question: "Commonly used data types do not include?",
@@ -8,7 +11,7 @@ var questions = [
 ];
 
 var currentQuestion = 0;
-let timer = 5;
+let timer = 60;
 
 let start = document.getElementById('startBtn');
 let timerDisplay = document.getElementById("timer");
@@ -24,8 +27,7 @@ function startFunc() {
     timerDisplay.textContent = timer;
     if (timer <= 0) {
         clearInterval(countDown);
-        alert("Time's up!");
-        
+        // endGame();
     }
   }, 1000);
 }
@@ -36,13 +38,15 @@ function startFunc() {
 // we use .innerHTML to set the content of question1 to our questions array
 // then append question1 as a child of quizBox element
 
-// finally we a for loop to iterate over our questions array
+// finally we use a for loop to iterate over our questions array
 // create a button element called option
 // set the content of option to the options property of the first question object in our questions array
 // and append option as a child of our quizBox element
 
 function quizFunc() {
   quiz.innerHTML="";
+  quiz.setAttribute("id", "quiz-id");
+  start.style.display="none";
   let question1 = document.createElement("h2");
   let timerOverlay = timerDisplay;
   question1.innerHTML= questions[currentQuestion].question;
@@ -52,6 +56,7 @@ function quizFunc() {
   for (let i = 0; i < questions[currentQuestion].options.length; i++) {
     let option = document.createElement("button");
     option.innerHTML = questions[currentQuestion].options[i];
+    option.setAttribute("id", "options-id");
     quiz.appendChild(option);
   }
 }
