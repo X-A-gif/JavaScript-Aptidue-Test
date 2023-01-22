@@ -1,0 +1,53 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background: rgb(1,33,96);
+    background: linear-gradient(90deg, rgba(1,33,96,1) 29%, rgba(50,63,91,1) 38%, rgba(2,37,105,1) 88%); 
+}
+
+#quizBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 17rem;
+    text-align: center;
+}
+
+h1 img {
+    height: 100px;
+    width: 100px;
+}
+
+#btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: #022569; 
+    color: white;
+    padding: 12px 20px;
+    border: none; 
+    border-radius: 4px;
+    cursor: pointer; 
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #6b6b6b;
+  }
+  
+#startBtn {
+    margin: 2.5rem;
+}
+
+#options-id {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
