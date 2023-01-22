@@ -1,0 +1,24 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background: rgb(1,33,96);
+    background: linear-gradient(90deg, rgba(1,33,96,1) 29%, rgba(50,63,91,1) 38%, rgba(2,37,105,1) 88%); 
+}
+
+#quizBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 17rem;
+    text-align: center;
+}
+
+#btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#startBtn {
+    margin: 2.5rem;
+}
