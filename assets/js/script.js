@@ -8,10 +8,31 @@ var questions = [
     options: ["Booleans", "Strings", "Numbers", "map"],
     correctAnswer: "map"
   },
+  {
+    question: "The condition in an if / else statement is enclosed within?",
+    options: ["quotes", "curly brackets", "parentheses", "Square brackets"],
+    correctAnswer: "curly brackets"
+  },
+  {
+    question: "Arrays in javaScript can be used to store?",
+    options: ["numbers and stings", "other arrays", "booleans", "all of the above"],
+    correctAnswer: "all of the above"
+  },
+  {
+    question: "String values must be enclosed within _____ when being assigned to varibles?",
+    options: ["commas", "curley brackets", "quotes", "parentheses"],
+    correctAnswer: "quotes"
+  },
+  {
+    question: "A very useful tool used during development and debugging for printing content to the debugger is:?",
+    options: ["javaScript", "terminal / bash", "for loops", "console log"],
+    correctAnswer: "console log"
+  },
 ];
 
 var currentQuestion = 0;
 let timer = 60;
+let score = 0;
 
 let start = document.getElementById('startBtn');
 let timerDisplay = document.getElementById("timer");
@@ -27,14 +48,14 @@ function startFunc() {
     timerDisplay.textContent = timer;
     if (timer <= 0) {
         clearInterval(countDown);
-        // endGame();
+        endQuiz();
     }
   }, 1000);
 }
 
 // Createed our quiz function 
 // call our quiz variable and use the .innerHTML method to set content of our quizBox element to blank
-// we delcare our first question variable and use .createElement method to add an h2 element
+// we delcare our question variable and use .createElement method to add an h2 element
 // we use .innerHTML to set the content of question1 to our questions array
 // then append question1 as a child of quizBox element
 
@@ -47,18 +68,55 @@ function quizFunc() {
   quiz.innerHTML="";
   quiz.setAttribute("id", "quiz-id");
   start.style.display="none";
-  let question1 = document.createElement("h2");
+  let question = document.createElement("h2");
   let timerOverlay = timerDisplay;
-  question1.innerHTML= questions[currentQuestion].question;
-  quiz.appendChild(question1);
+  question.innerHTML= questions[currentQuestion].question;
+  quiz.appendChild(question);
   quiz.appendChild(timerOverlay);
 
   for (let i = 0; i < questions[currentQuestion].options.length; i++) {
     let option = document.createElement("button");
     option.innerHTML = questions[currentQuestion].options[i];
     option.setAttribute("id", "options-id");
+    option.setAttribute("onclick", "checkAnswer(this)");
     quiz.appendChild(option);
   }
+}
+
+// we create a checkAnswer function pass option as the first argument
+// the function returns a conditional statement that checks if the answer is correct 
+// and increments the score by + 1 if correct decrements the timer -10 if incorrect
+// if the timer isnt = to 0 we run the quizFunc again to procced to the next question
+// otherwise if timer <= 0 endQuiz function with execute and the
+
+function checkAnswer (option) {
+  if (option.innerHTML === questions[currentQuestion].correctAnswer) {
+    score++;
+  } else {
+    timer -= 10;
+  }
+  currentQuestion++;
+  if (currentQuestion === questions.length || timer <= 0) {
+    endQuiz();
+  }
+ else {
+  quizFunc(); 
+  }
+}
+
+// Created endQuiz function 
+// when called it sets the content of our quizBox to blank
+// and reassigns its id to quiz-id in the local scope
+// decalare finalScore variable as new h2 element
+// set the content of it to our score variable
+// and finally append it as child of quiz
+
+function endQuiz() {
+  quiz.innerHTML = "";
+  quiz.setAttribute("id", "quiz-id");
+  let finalScore = document.createElement("h2");
+  finalScore.innerHTML = "Your final score is: " + score;
+  quiz.appendChild(finalScore);
 }
 
 start.addEventListener("click", startFunc);

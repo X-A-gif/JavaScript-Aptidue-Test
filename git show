@@ -1,0 +1,67 @@
+[33mcommit 9e2845af764cd033403c6d828a400ce7894b95be[m[33m ([m[1;36mHEAD -> [m[1;32mfeature/add-quizFunc[m[33m, [m[1;31morigin/feature/add-quizFunc[m[33m)[m
+Merge: 5ae55e2 77ac7ca
+Author: enamorada <109630476+AlmaHakba@users.noreply.github.com>
+Date:   Sat Jan 21 20:26:59 2023 -0800
+
+    Merge branch 'main' of github.com:X-A-gif/JavaScript-Aptidue-Test into feature/add-quizFunc
+
+[33mcommit 5ae55e24cfafa472859b106c24918bef24e96c94[m
+Author: enamorada <109630476+AlmaHakba@users.noreply.github.com>
+Date:   Sat Jan 21 20:26:34 2023 -0800
+
+    add some css stlying and suc
+
+[33mcommit 77ac7caae2b6cb04cd188af055824e0b7f3b77e2[m
+Author: X-A-gif <109630476+X-A-gif@users.noreply.github.com>
+Date:   Sat Jan 21 20:22:15 2023 -0800
+
+    Update README.md
+
+[33mcommit 4ca7f914719df2d0ac056f3e49e6c742de7c1d3e[m
+Author: X-A-gif <109630476+X-A-gif@users.noreply.github.com>
+Date:   Sat Jan 21 20:01:03 2023 -0800
+
+    Update README.md
+
+[33mcommit fcee3446a3432666b2d7492798b155a165e2c4fb[m
+Merge: 7d0fc84 d7f1ee4
+Author: X-A-gif <109630476+X-A-gif@users.noreply.github.com>
+Date:   Sat Jan 21 19:52:36 2023 -0800
+
+    Merge pull request #2 from X-A-gif/feature/add-quizFunc
+    
+    Feature/add quiz func
+
+[33mcommit d7f1ee4ca9d28ed956f5534ae120c9f858e3dee0[m
+Merge: bca938b 7d0fc84
+Author: enamorada <109630476+AlmaHakba@users.noreply.github.com>
+Date:   Sat Jan 21 19:51:49 2023 -0800
+
+    Merge branch 'main' of github.com:X-A-gif/JavaScript-Aptidue-Test into feature/add-quizFunc
+
+[33mcommit bca938ba0f9f1ddf6bb8d06b5fd4bd5dfa163f7d[m
+Author: enamorada <109630476+AlmaHakba@users.noreply.github.com>
+Date:   Sat Jan 21 19:51:37 2023 -0800
+
+    added a quiz function
+
+[33mcommit 7d0fc843bab6a62b5b97dfa962bafd877964c57d[m
+Merge: 86ad214 d994ce0
+Author: X-A-gif <109630476+X-A-gif@users.noreply.github.com>
+Date:   Sat Jan 21 18:35:16 2023 -0800
+
+    Merge pull request #1 from X-A-gif/setup/html-css-js
+    
+    setup basic html css
+
+[33mcommit d994ce07e60b722581de8ad0df1e3b55e2d6f84b[m[33m ([m[1;31morigin/setup/html-css-js[m[33m, [m[1;32msetup/html-css-js[m[33m)[m
+Author: enamorada <109630476+AlmaHakba@users.noreply.github.com>
+Date:   Sat Jan 21 18:34:01 2023 -0800
+
+    setup basic html css
+
+[33mcommit 86ad2144a9e7701a4b7703efec6dcbe89cc4745f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: X-A-gif <109630476+X-A-gif@users.noreply.github.com>
+Date:   Sat Jan 21 18:29:59 2023 -0800
+
+    Initial commit
