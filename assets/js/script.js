@@ -114,7 +114,6 @@ function checkAnswer (option) {
 // and reassigns its id to quiz-id in the local scope
 // decalare finalScore variable as new h2 element
 // set the content of it to our score variable
-// and finally append it as child of quiz
 
 function endQuiz() {
   quiz.innerHTML = "";
