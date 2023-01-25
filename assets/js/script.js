@@ -30,6 +30,8 @@ var questions = [
   },
 ];
 
+var initialsArray = [];
+
 var currentQuestion = 0;
 let timer = 60;
 let score = 0;
@@ -40,6 +42,7 @@ let quiz = document.getElementById("quizBox");
 
 // Create a start function that calls our Quiz function and uses setInterval() 
 // to initialize the timer decrementing by 1 second
+// when timer = 0 clearInterval end countDown and runs endQuiz function
 
 function startFunc() {
     quizFunc();
@@ -86,8 +89,9 @@ function quizFunc() {
 // we create a checkAnswer function pass option as the first argument
 // the function returns a conditional statement that checks if the answer is correct 
 // and increments the score by + 1 if correct decrements the timer -10 if incorrect
+// when and answer is clicked the currentQuestion variable is incremented by + 1 
 // if the timer isnt = to 0 we run the quizFunc again to procced to the next question
-// otherwise if timer <= 0 endQuiz function with execute and the
+// otherwise if timer <= 0 endQuiz function will execute 
 
 function checkAnswer (option) {
   if (option.innerHTML === questions[currentQuestion].correctAnswer) {
@@ -104,6 +108,34 @@ function checkAnswer (option) {
   }
 }
 
+function saveFunc() {
+  let saveForm = document.getElementById("scoreBoard");
+  saveForm.style.display = "block";
+  saveForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let initials = document.getElementById("inits").value;
+    console.log(initials);
+    let results = {
+      inits: initials,
+      score: score
+    };
+    let scoreBoard = document.createElement("li");
+    const textnode = document.createTextNode(initials);
+    scoreBoard.appendChild(textnode); 
+    // scoreBoard = results
+    // score.textContent = initials;
+    
+    
+    initialsArray.push(JSON.stringify(results));
+    
+    localStorage.setItem("initials", initialsArray)
+    
+    quiz.appendChild(scoreBoard);
+
+
+  });
+}
+
 // Created endQuiz function 
 // when called it sets the content of our quizBox to blank
 // and reassigns its id to quiz-id in the local scope
@@ -116,7 +148,11 @@ function endQuiz() {
   quiz.setAttribute("id", "quiz-id");
   let finalScore = document.createElement("h2");
   finalScore.innerHTML = "Your final score is: " + score;
+
+
   quiz.appendChild(finalScore);
+  
+  saveFunc();
 }
 
-start.addEventListener("click", startFunc);
+ start.addEventListener("click", startFunc);
