@@ -39,6 +39,7 @@ let score = 0;
 let start = document.getElementById('startBtn');
 let timerDisplay = document.getElementById("timer");
 let quiz = document.getElementById("quizBox");
+let scoreBtn = document.getElementById("scoreBtn");
 
 // Create a start function that calls our Quiz function and uses setInterval() 
 // to initialize the timer decrementing by 1 second
@@ -108,34 +109,6 @@ function checkAnswer (option) {
   }
 }
 
-function saveFunc() {
-  let saveForm = document.getElementById("scoreBoard");
-  saveForm.style.display = "block";
-  saveForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-    let initials = document.getElementById("inits").value;
-    console.log(initials);
-    let results = {
-      inits: initials,
-      score: score
-    };
-    let scoreBoard = document.createElement("li");
-    const textnode = document.createTextNode(initials);
-    scoreBoard.appendChild(textnode); 
-    // scoreBoard = results
-    // score.textContent = initials;
-    
-    
-    initialsArray.push(JSON.stringify(results));
-    
-    localStorage.setItem("initials", initialsArray)
-    
-    quiz.appendChild(scoreBoard);
-
-
-  });
-}
-
 // Created endQuiz function 
 // when called it sets the content of our quizBox to blank
 // and reassigns its id to quiz-id in the local scope
@@ -149,10 +122,72 @@ function endQuiz() {
   let finalScore = document.createElement("h2");
   finalScore.innerHTML = "Your final score is: " + score;
 
-
   quiz.appendChild(finalScore);
   
-  saveFunc();
+  let form = document.createElement("form");
+  let input = document.createElement("input");
+  input.setAttribute("type", "text");
+  input.setAttribute("placeholder", "Enter Initials");
+  let submit = document.createElement("input");
+  submit.setAttribute("type", "submit");
+  submit.setAttribute("value", "Save");
+  form.appendChild(input);
+  form.appendChild(submit);
+  quiz.appendChild(form);
+
+  
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let initials = input.value;
+    if (initials !== "") {
+
+      initialsArray.push({initials: initials, score: score});
+      if (!localStorage.getItem("score")) {
+        localStorage.setItem("score", score);
+        localStorage.setItem("initials", initialsArray);
+    }
+      form.innerHTML = "";
+      let saved = document.createElement("p");
+      saved.innerHTML = "Score Saved!";
+      form.appendChild(saved);
+    }
+  });
+
 }
+
+
+function viewHighScores() {
+
+  initialsArray.sort(function(a, b) {
+    return b.score - a.score;
+  });
+
+  
+  quiz.innerHTML = "";
+  let highScores = document.createElement("h1");
+  highScores.innerHTML = "High Scores";
+  quiz.appendChild(highScores);
+
+
+  for (let i = 0; i < initialsArray.length; i++) {
+    let score = document.createElement("p");
+    score.innerHTML = initialsArray[i].initials + " - " + initialsArray[i].score;
+    quiz.appendChild(score);
+  }
+
+  let backButton = document.createElement("button");
+  backButton.innerHTML = "Go Back";
+  backButton.setAttribute("onclick", "backToStart()");
+  quiz.appendChild(backButton);
+}
+
+function backToStart() {
+  quiz.innerHTML = "";
+  if(quizFunc) {
+    quizFunc();
+  } 
+}
+
+scoreBtn.addEventListener("click", viewHighScores);
 
  start.addEventListener("click", startFunc);
