@@ -1,8 +1,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     background: rgb(1,33,96);
-    background: linear-gradient(90deg, rgba(1,33,96,1) 29%, rgba(50,63,91,1) 38%, rgba(2,37,105,1) 88%); 
+    
 }
 
 #quizBox {
